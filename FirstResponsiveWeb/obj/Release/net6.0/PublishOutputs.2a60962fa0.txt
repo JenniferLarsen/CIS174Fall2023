@@ -1,0 +1,8 @@
+C:\Users\djlar\source\repos\FirstResponsiveWeb\obj\Release\net6.0\PubTmp\Out\FirstResponsiveWeb.exe
+C:\Users\djlar\source\repos\FirstResponsiveWeb\obj\Release\net6.0\PubTmp\Out\appsettings.Development.json
+C:\Users\djlar\source\repos\FirstResponsiveWeb\obj\Release\net6.0\PubTmp\Out\appsettings.json
+C:\Users\djlar\source\repos\FirstResponsiveWeb\obj\Release\net6.0\PubTmp\Out\libman.json
+C:\Users\djlar\source\repos\FirstResponsiveWeb\obj\Release\net6.0\PubTmp\Out\FirstResponsiveWeb.dll
+C:\Users\djlar\source\repos\FirstResponsiveWeb\obj\Release\net6.0\PubTmp\Out\FirstResponsiveWeb.deps.json
+C:\Users\djlar\source\repos\FirstResponsiveWeb\obj\Release\net6.0\PubTmp\Out\FirstResponsiveWeb.runtimeconfig.json
+C:\Users\djlar\source\repos\FirstResponsiveWeb\obj\Release\net6.0\PubTmp\Out\FirstResponsiveWeb.pdb

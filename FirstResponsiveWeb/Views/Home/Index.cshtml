@@ -1,0 +1,34 @@
+﻿@model AgeThisYearModel
+@{
+    ViewData["Title"] = "Age This Year Calculator";
+}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Age This Year Calculator</title>
+    </head>
+    <body>
+        <h1>Age This Year Calculator</h1>
+        <form asp-action="Index" method="post">
+            <div asp-validation-summary="All"></div>
+
+            <div>
+                <label asp-for="Name">Name:</label>
+                <input asp-for="Name"/>
+            </div>
+            <div>
+                <label asp-for="BirthYear">Birth Year:</label>
+                <input asp-for="BirthYear"/>
+            </div>
+            <div>
+                <label>Age as of 12/31 This Year:</label>
+                <input value="@ViewBag.AgeThisYear" readonly />
+            </div>
+            <div>
+                <button type="submit">Calculate</button>
+                <a asp-action="Index">Clear</a>
+            </div>
+        </form>
+    </body>
+</html>
