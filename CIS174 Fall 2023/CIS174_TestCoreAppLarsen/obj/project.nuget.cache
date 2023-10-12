@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "Xk9SOAguq5B6DmWcJjfz/piVjIFPgBjJkaLdh+h362pcbh8pSfYLK3mohqjcgjBoXu5XOAy69LjxXDkRZ0IcJg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\djlar\\source\\repos\\CIS174_TestCoreAppLarsen\\CIS174_TestCoreAppLarsen.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\djlar\\.nuget\\packages\\bootstrap\\5.1.0\\bootstrap.5.1.0.nupkg.sha512"
+  ],
+  "logs": []
+}
