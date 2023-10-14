@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Olympics_Larsen.props" />
+</Project>
