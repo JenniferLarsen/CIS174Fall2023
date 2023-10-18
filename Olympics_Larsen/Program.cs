@@ -1,9 +1,22 @@
+using Olympics_Larsen.Repository;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.SqlServer;
+using Microsoft.Extensions.Configuration;
+using Olympics_Larsen.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddDbContext<CountryContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("CountryContext"));
+});
+
 var app = builder.Build();
+
+builder.Configuration.AddJsonFile("appsettings.json");
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

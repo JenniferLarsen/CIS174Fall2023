@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\djlar\\OneDrive\\Documents\\GitHub\\CIS174Fall2023\\Olympics_Larsen\\Olympics_Larsen.csproj": {}
+    "C:\\Users\\djlar\\source\\repos\\Olympics_Larsen\\Olympics_Larsen.csproj": {}
   },
   "projects": {
-    "C:\\Users\\djlar\\OneDrive\\Documents\\GitHub\\CIS174Fall2023\\Olympics_Larsen\\Olympics_Larsen.csproj": {
+    "C:\\Users\\djlar\\source\\repos\\Olympics_Larsen\\Olympics_Larsen.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\djlar\\OneDrive\\Documents\\GitHub\\CIS174Fall2023\\Olympics_Larsen\\Olympics_Larsen.csproj",
+        "projectUniqueName": "C:\\Users\\djlar\\source\\repos\\Olympics_Larsen\\Olympics_Larsen.csproj",
         "projectName": "Olympics_Larsen",
-        "projectPath": "C:\\Users\\djlar\\OneDrive\\Documents\\GitHub\\CIS174Fall2023\\Olympics_Larsen\\Olympics_Larsen.csproj",
+        "projectPath": "C:\\Users\\djlar\\source\\repos\\Olympics_Larsen\\Olympics_Larsen.csproj",
         "packagesPath": "C:\\Users\\djlar\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\djlar\\OneDrive\\Documents\\GitHub\\CIS174Fall2023\\Olympics_Larsen\\obj\\",
+        "outputPath": "C:\\Users\\djlar\\source\\repos\\Olympics_Larsen\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -46,6 +46,16 @@
           "targetAlias": "net6.0",
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.12, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.12, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[7.0.12, )"
             },

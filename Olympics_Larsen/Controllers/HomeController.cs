@@ -6,26 +6,26 @@ namespace Olympics_Larsen.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private CountryContext context;
+        public HomeController(CountryContext ctx)
         {
-            _logger = logger;
+            context = ctx;
         }
 
-        public RedirectToActionResult Index() => RedirectToAction("List");
-        public RedirectToActionResult Index(string id) => RedirectToAction("Details", new Dictionary<string, string>() {{ "ID", id }});
-
-        public IActionResult Privacy()
+        public ViewResult Index(CountriesViewModel model)
         {
-            return View();
-        }
+            /**************using ViewModel****************************/
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+            model.Games = context.Games.ToList();
+            model.Sports = context.Sports.ToList();
 
+            IQueryable<Country> query = context.Countries.OrderBy(c => c.Game);
+            if (model.ActiveGame != "all")
+                query = query.Where(c => c.Game.GameID.ToLower() == model.ActiveGame.ToLower());
+            if (model.ActiveSport != "all")
+                query = query.Where(c => c.Sport.SportID.ToLower() == model.ActiveSport.ToLower());
+            model.Countries = query.ToList();
+            return View(model);
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Olympics_Larsen.Controllers;
+using Olympics_Larsen.Models;
 
 namespace Olympics_Larsen.Models
 {
