@@ -17,7 +17,7 @@
                class="list-group-item @Model.CheckActiveGame("all")">
                All</a>
            
-            @foreach (Game game in Model.Games)
+            @foreach (Game game in @Model.Games)
             {
                 <a asp-action="Index"
                    asp-route-activeGame="@game.GameID"
@@ -36,7 +36,7 @@
                asp-route-activeSport="@Model.ActiveSport"
                class="list-group-item @Model.CheckActiveLocation("all")">All</a>
 
-            @foreach (Location location in Model.Locations)
+            @foreach (Location location in @Model.Locations)
             {
                 <a asp-action="Index"
                    asp-route-activeLocation="@location.LocationID"
@@ -55,7 +55,7 @@
                asp-route-activeLocation="@Model.ActiveLocation"
                class="list-group-item @Model.CheckActiveSport("all")">All</a>
 
-            @foreach (Sport sport in Model.Sports)
+            @foreach (Sport sport in @Model.Sports)
             {
                 <a asp-action="Index"
                    asp-route-activeSport="@sport.SportID"
@@ -69,7 +69,7 @@
     </div>
 <div class="col-md-9">
     <ul class="list-inline">
-        @foreach (Country country in Model.Countries)
+        @foreach (Country country in @Model.Countries)
         {
             <li class="list-inline-item">
                 <a asp-action="Index" asp-route-id="@country.CountryID">

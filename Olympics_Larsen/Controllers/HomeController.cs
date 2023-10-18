@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Olympics_Larsen.Models;
 using System.Diagnostics;
 
@@ -19,7 +20,7 @@ namespace Olympics_Larsen.Controllers
             model.Games = context.Games.ToList();
             model.Sports = context.Sports.ToList();
 
-            IQueryable<Country> query = context.Countries.OrderBy(c => c.Game);
+            IQueryable<Country> query = context.Countries.Include(l => l.Location).Include(s => s.Sport).Include(g => g.Game).OrderBy(c => c.Game);
             if (model.ActiveGame != "all")
                 query = query.Where(c => c.Game.GameID.ToLower() == model.ActiveGame.ToLower());
             if (model.ActiveSport != "all")

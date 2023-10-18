@@ -11,8 +11,8 @@ using Olympics_Larsen.Models;
 namespace Olympics_Larsen.Migrations
 {
     [DbContext(typeof(CountryContext))]
-    [Migration("20231018003317_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20231018154452_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -38,12 +38,15 @@ namespace Olympics_Larsen.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("GameID")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LocationID")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("SportID")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("CountryID");
@@ -59,141 +62,219 @@ namespace Olympics_Larsen.Migrations
                     b.HasData(
                         new
                         {
+                            CountryID = "CAN",
+                            CountryName = "Canada",
+                            FlagImage = "canada.jpg",
+                            GameID = "Winter",
+                            LocationID = "In",
+                            SportID = "Curl"
+                        },
+                        new
+                        {
                             CountryID = "SWE",
                             CountryName = "Sweden",
-                            FlagImage = ""
+                            FlagImage = "sweden.jpg",
+                            GameID = "Winter",
+                            LocationID = "In",
+                            SportID = "Curl"
                         },
                         new
                         {
                             CountryID = "GBR",
                             CountryName = "Great Brittain",
-                            FlagImage = ""
+                            FlagImage = "great_brittain.jpg",
+                            GameID = "Winter",
+                            LocationID = "In",
+                            SportID = "Curl"
                         },
                         new
                         {
                             CountryID = "JAM",
                             CountryName = "Jamaica",
-                            FlagImage = ""
+                            FlagImage = "jamaica.jpg",
+                            GameID = "Winter",
+                            LocationID = "Out",
+                            SportID = "Bob"
                         },
                         new
                         {
                             CountryID = "ITA",
                             CountryName = "Italy",
-                            FlagImage = ""
+                            FlagImage = "italy.jpg",
+                            GameID = "Winter",
+                            LocationID = "Out",
+                            SportID = "Bob"
                         },
                         new
                         {
                             CountryID = "JPN",
                             CountryName = "Japan",
-                            FlagImage = ""
+                            FlagImage = "japan.jpg",
+                            GameID = "Winter",
+                            LocationID = "Out",
+                            SportID = "Bob"
                         },
                         new
                         {
                             CountryID = "DEU",
                             CountryName = "Germany",
-                            FlagImage = ""
+                            FlagImage = "germany.jpg",
+                            GameID = "Summer",
+                            LocationID = "In",
+                            SportID = "Dive"
                         },
                         new
                         {
                             CountryID = "CHN",
                             CountryName = "China",
-                            FlagImage = ""
+                            FlagImage = "china.jpg",
+                            GameID = "Summer",
+                            LocationID = "In",
+                            SportID = "Dive"
                         },
                         new
                         {
                             CountryID = "MXN",
                             CountryName = "Mexico",
-                            FlagImage = ""
+                            FlagImage = "mexico.jpg",
+                            GameID = "Summer",
+                            LocationID = "In",
+                            SportID = "Dive"
                         },
                         new
                         {
                             CountryID = "BRA",
                             CountryName = "Brazil",
-                            FlagImage = ""
+                            FlagImage = "brazil.jpg",
+                            GameID = "Summer",
+                            LocationID = "Out",
+                            SportID = "RCycle"
                         },
                         new
                         {
                             CountryID = "NLD",
                             CountryName = "Netherlands",
-                            FlagImage = ""
+                            FlagImage = "netherlands.jpg",
+                            GameID = "Summer",
+                            LocationID = "In",
+                            SportID = "Cyc"
                         },
                         new
                         {
                             CountryID = "USA",
                             CountryName = "United States of America",
-                            FlagImage = ""
+                            FlagImage = "united_states.jpg",
+                            GameID = "Summer",
+                            LocationID = "Out",
+                            SportID = "RCycle"
                         },
                         new
                         {
                             CountryID = "THA",
                             CountryName = "Thailand",
-                            FlagImage = ""
+                            FlagImage = "thailand.jpg",
+                            GameID = "Para",
+                            LocationID = "In",
+                            SportID = "Arc"
                         },
                         new
                         {
                             CountryID = "URY",
                             CountryName = "Uruguay",
-                            FlagImage = ""
+                            FlagImage = "uruguay.jpg",
+                            GameID = "Para",
+                            LocationID = "In",
+                            SportID = "Arc"
                         },
                         new
                         {
                             CountryID = "UKR",
                             CountryName = "Ukraine",
-                            FlagImage = ""
+                            FlagImage = "ukraine.jpg",
+                            GameID = "Para",
+                            LocationID = "In",
+                            SportID = "Arc"
                         },
                         new
                         {
                             CountryID = "AUT",
                             CountryName = "Austria",
-                            FlagImage = ""
+                            FlagImage = "austria.jpg",
+                            GameID = "Para",
+                            LocationID = "Out",
+                            SportID = "Can"
                         },
                         new
                         {
                             CountryID = "PAK",
                             CountryName = "Pakistan",
-                            FlagImage = ""
+                            FlagImage = "pakistan.jpg",
+                            GameID = "Para",
+                            LocationID = "Out",
+                            SportID = "Can"
                         },
                         new
                         {
                             CountryID = "ZWE",
                             CountryName = "Zimbabwe",
-                            FlagImage = ""
+                            FlagImage = "zimbabwe.jpg",
+                            GameID = "Para",
+                            LocationID = "Out",
+                            SportID = "Can"
                         },
                         new
                         {
                             CountryID = "FRA",
                             CountryName = "France",
-                            FlagImage = ""
+                            FlagImage = "france.jpg",
+                            GameID = "Youth",
+                            LocationID = "In",
+                            SportID = "Bkd"
                         },
                         new
                         {
                             CountryID = "CYP",
-                            CountryName = "Cypress",
-                            FlagImage = ""
+                            CountryName = "Cyprus",
+                            FlagImage = "cyprus.jpg",
+                            GameID = "Youth",
+                            LocationID = "In",
+                            SportID = "Bkd"
                         },
                         new
                         {
                             CountryID = "RUS",
                             CountryName = "Russia",
-                            FlagImage = ""
+                            FlagImage = "russia.jpg",
+                            GameID = "Youth",
+                            LocationID = "In",
+                            SportID = "Bkd"
                         },
                         new
                         {
                             CountryID = "FIN",
                             CountryName = "Finland",
-                            FlagImage = ""
+                            FlagImage = "finland.jpg",
+                            GameID = "Youth",
+                            LocationID = "Out",
+                            SportID = "Skt"
                         },
                         new
                         {
                             CountryID = "SVK",
                             CountryName = "Slovakia",
-                            FlagImage = ""
+                            FlagImage = "slovakia.jpg",
+                            GameID = "Youth",
+                            LocationID = "Out",
+                            SportID = "Skt"
                         },
                         new
                         {
                             CountryID = "PRT",
                             CountryName = "Portugal",
-                            FlagImage = ""
+                            FlagImage = "portugal.jpg",
+                            GameID = "Youth",
+                            LocationID = "Out",
+                            SportID = "Skt"
                         });
                 });
 
@@ -324,15 +405,21 @@ namespace Olympics_Larsen.Migrations
                 {
                     b.HasOne("Olympics_Larsen.Models.Game", "Game")
                         .WithMany()
-                        .HasForeignKey("GameID");
+                        .HasForeignKey("GameID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Olympics_Larsen.Models.Location", "Location")
                         .WithMany()
-                        .HasForeignKey("LocationID");
+                        .HasForeignKey("LocationID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Olympics_Larsen.Models.Sport", "Sport")
                         .WithMany()
-                        .HasForeignKey("SportID");
+                        .HasForeignKey("SportID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Game");
 

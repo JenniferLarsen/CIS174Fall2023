@@ -7,7 +7,7 @@
 namespace Olympics_Larsen.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class Initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -54,10 +54,10 @@ namespace Olympics_Larsen.Migrations
                 {
                     CountryID = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     CountryName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    LocationID = table.Column<string>(type: "nvarchar(450)", nullable: true),
-                    GameID = table.Column<string>(type: "nvarchar(450)", nullable: true),
-                    SportID = table.Column<string>(type: "nvarchar(450)", nullable: true),
-                    FlagImage = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    FlagImage = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    GameID = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    SportID = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    LocationID = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -66,47 +66,20 @@ namespace Olympics_Larsen.Migrations
                         name: "FK_Countries_Games_GameID",
                         column: x => x.GameID,
                         principalTable: "Games",
-                        principalColumn: "GameID");
+                        principalColumn: "GameID",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Countries_Locations_LocationID",
                         column: x => x.LocationID,
                         principalTable: "Locations",
-                        principalColumn: "LocationID");
+                        principalColumn: "LocationID",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Countries_Sports_SportID",
                         column: x => x.SportID,
                         principalTable: "Sports",
-                        principalColumn: "SportID");
-                });
-
-            migrationBuilder.InsertData(
-                table: "Countries",
-                columns: new[] { "CountryID", "CountryName", "FlagImage", "GameID", "LocationID", "SportID" },
-                values: new object[,]
-                {
-                    { "AUT", "Austria", "", null, null, null },
-                    { "BRA", "Brazil", "", null, null, null },
-                    { "CHN", "China", "", null, null, null },
-                    { "CYP", "Cypress", "", null, null, null },
-                    { "DEU", "Germany", "", null, null, null },
-                    { "FIN", "Finland", "", null, null, null },
-                    { "FRA", "France", "", null, null, null },
-                    { "GBR", "Great Brittain", "", null, null, null },
-                    { "ITA", "Italy", "", null, null, null },
-                    { "JAM", "Jamaica", "", null, null, null },
-                    { "JPN", "Japan", "", null, null, null },
-                    { "MXN", "Mexico", "", null, null, null },
-                    { "NLD", "Netherlands", "", null, null, null },
-                    { "PAK", "Pakistan", "", null, null, null },
-                    { "PRT", "Portugal", "", null, null, null },
-                    { "RUS", "Russia", "", null, null, null },
-                    { "SVK", "Slovakia", "", null, null, null },
-                    { "SWE", "Sweden", "", null, null, null },
-                    { "THA", "Thailand", "", null, null, null },
-                    { "UKR", "Ukraine", "", null, null, null },
-                    { "URY", "Uruguay", "", null, null, null },
-                    { "USA", "United States of America", "", null, null, null },
-                    { "ZWE", "Zimbabwe", "", null, null, null }
+                        principalColumn: "SportID",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.InsertData(
@@ -143,6 +116,37 @@ namespace Olympics_Larsen.Migrations
                     { "Dive", "Diving" },
                     { "RCycle", "Road Cycling" },
                     { "Skt", "Skateboarding" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Countries",
+                columns: new[] { "CountryID", "CountryName", "FlagImage", "GameID", "LocationID", "SportID" },
+                values: new object[,]
+                {
+                    { "AUT", "Austria", "austria.jpg", "Para", "Out", "Can" },
+                    { "BRA", "Brazil", "brazil.jpg", "Summer", "Out", "RCycle" },
+                    { "CAN", "Canada", "canada.jpg", "Winter", "In", "Curl" },
+                    { "CHN", "China", "china.jpg", "Summer", "In", "Dive" },
+                    { "CYP", "Cyprus", "cyprus.jpg", "Youth", "In", "Bkd" },
+                    { "DEU", "Germany", "germany.jpg", "Summer", "In", "Dive" },
+                    { "FIN", "Finland", "finland.jpg", "Youth", "Out", "Skt" },
+                    { "FRA", "France", "france.jpg", "Youth", "In", "Bkd" },
+                    { "GBR", "Great Brittain", "great_brittain.jpg", "Winter", "In", "Curl" },
+                    { "ITA", "Italy", "italy.jpg", "Winter", "Out", "Bob" },
+                    { "JAM", "Jamaica", "jamaica.jpg", "Winter", "Out", "Bob" },
+                    { "JPN", "Japan", "japan.jpg", "Winter", "Out", "Bob" },
+                    { "MXN", "Mexico", "mexico.jpg", "Summer", "In", "Dive" },
+                    { "NLD", "Netherlands", "netherlands.jpg", "Summer", "In", "Cyc" },
+                    { "PAK", "Pakistan", "pakistan.jpg", "Para", "Out", "Can" },
+                    { "PRT", "Portugal", "portugal.jpg", "Youth", "Out", "Skt" },
+                    { "RUS", "Russia", "russia.jpg", "Youth", "In", "Bkd" },
+                    { "SVK", "Slovakia", "slovakia.jpg", "Youth", "Out", "Skt" },
+                    { "SWE", "Sweden", "sweden.jpg", "Winter", "In", "Curl" },
+                    { "THA", "Thailand", "thailand.jpg", "Para", "In", "Arc" },
+                    { "UKR", "Ukraine", "ukraine.jpg", "Para", "In", "Arc" },
+                    { "URY", "Uruguay", "uruguay.jpg", "Para", "In", "Arc" },
+                    { "USA", "United States of America", "united_states.jpg", "Summer", "Out", "RCycle" },
+                    { "ZWE", "Zimbabwe", "zimbabwe.jpg", "Para", "Out", "Can" }
                 });
 
             migrationBuilder.CreateIndex(
