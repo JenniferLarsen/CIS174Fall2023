@@ -683,11 +683,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\djlar\\source\\repos\\Olympics_Larsen\\Olympics_Larsen.csproj",
+      "projectUniqueName": "C:\\Users\\djlar\\OneDrive\\Documents\\GitHub\\CIS174Fall2023\\Olympics_Larsen\\Olympics_Larsen.csproj",
       "projectName": "Olympics_Larsen",
-      "projectPath": "C:\\Users\\djlar\\source\\repos\\Olympics_Larsen\\Olympics_Larsen.csproj",
+      "projectPath": "C:\\Users\\djlar\\OneDrive\\Documents\\GitHub\\CIS174Fall2023\\Olympics_Larsen\\Olympics_Larsen.csproj",
       "packagesPath": "C:\\Users\\djlar\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\djlar\\source\\repos\\Olympics_Larsen\\obj\\",
+      "outputPath": "C:\\Users\\djlar\\OneDrive\\Documents\\GitHub\\CIS174Fall2023\\Olympics_Larsen\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -749,7 +749,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }

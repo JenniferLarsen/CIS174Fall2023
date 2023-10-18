@@ -7,11 +7,11 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace Olympics_Larsen.Controllers
 {
-    public class OlympicsController : Controller
+    public class OlympicController : Controller
     {
         private CountryContext context;
 
-        public OlympicsController(CountryContext ctx)
+        public OlympicController(CountryContext ctx)
         {
             context = ctx;
         }
