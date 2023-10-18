@@ -9,10 +9,10 @@ namespace Olympics_Larsen.Models
     public class CountryContext : DbContext
     {
         public CountryContext(DbContextOptions<CountryContext> options) : base(options) { }
-        public DbSet<Country> Countries { get; set; } = null!;
-        public DbSet<Game> Games { get; set; } = null!;
-        public DbSet<Location> Locations { get; set; } = null!;
-        public DbSet<Sport> Sports { get; set; } = null!;
+        public DbSet<Country> Countries { get; set; }
+        public DbSet<Game> Games { get; set; }
+        public DbSet<Location> Locations { get; set; }
+        public DbSet<Sport> Sports { get; set; }
 
 
 
@@ -55,7 +55,7 @@ namespace Olympics_Larsen.Models
                 new Country { CountryID = "MXN", CountryName = "Mexico", GameID = "Summer", SportID = "Dive", LocationID = "In", FlagImage = "mexico.jpg" },
                 new Country { CountryID = "BRA", CountryName = "Brazil", GameID = "Summer", SportID = "RCycle", LocationID = "Out", FlagImage = "brazil.jpg" },
                 new Country { CountryID = "NLD", CountryName = "Netherlands", GameID = "Summer", SportID = "Cyc", LocationID = "In", FlagImage = "netherlands.jpg" },
-                new Country { CountryID = "USA", CountryName = "United States of America", GameID = "Summer", SportID = "Rcycle", LocationID = "Out", FlagImage = "united_states.jpg" },
+                new Country { CountryID = "USA", CountryName = "United States of America", GameID = "Summer", SportID = "RCycle", LocationID = "Out", FlagImage = "united_states.jpg" },
                 new Country { CountryID = "THA", CountryName = "Thailand", GameID = "Para", SportID = "Arc", LocationID = "In", FlagImage = "thailand.jpg" },
                 new Country { CountryID = "URY", CountryName = "Uruguay", GameID = "Para", SportID = "Arc", LocationID = "In", FlagImage = "uruguay.jpg" },
                 new Country { CountryID = "UKR", CountryName = "Ukraine", GameID = "Para", SportID = "Arc", LocationID = "In", FlagImage = "ukraine.jpg" },
