@@ -72,7 +72,7 @@
         @foreach (Country country in Model.Countries)
         {
             <li class="list-inline-item">
-                <a asp-action="Details" asp-route-id="@country.CountryID">
+                <a asp-action="Index" asp-route-id="@country.CountryID">
                    <img src="~/images/@country.FlagImage" alt="@country.CountryName" title="@country.CountryName | @country.Location.LocationName @country.Game.GameName @country.Sport.SportName" />
                 </a>
             </li>

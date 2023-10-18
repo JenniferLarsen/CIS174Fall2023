@@ -9,14 +9,16 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddScoped<ICountryRepository, CountryRepository>();
+
 builder.Services.AddDbContext<CountryContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("CountryContext"));
 });
 
+builder.Configuration.AddJsonFile("appsettings.json");
 var app = builder.Build();
 
-builder.Configuration.AddJsonFile("appsettings.json");
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
