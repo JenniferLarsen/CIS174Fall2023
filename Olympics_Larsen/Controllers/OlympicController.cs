@@ -4,6 +4,7 @@ using Olympics_Larsen.Models;
 using Olympics_Larsen.Controllers;
 using System.Diagnostics;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.EntityFrameworkCore;
 
 namespace Olympics_Larsen.Controllers
 {
@@ -40,14 +41,31 @@ namespace Olympics_Larsen.Controllers
 
 
 
-        public RedirectToActionResult Index() => RedirectToAction("List", "Country");
+        public RedirectToActionResult Index() => RedirectToAction("Index", "Olympic");
 
         [HttpPost]
         public RedirectToActionResult Add(Country country)
         {
             TempData["message"] = $"(country.Name) added to your favorites";
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Olympic");
+        }
+
+        public IActionResult Details(string id)//page 323
+        {
+            //get selected division and sport from session 
+            //and pass them to the view in the view model per update pg 347
+            var session = new OlympicsSession(HttpContext.Session);
+            var model = new CountriesViewModel
+            {
+                Country = context.Countries
+                    .Include(c => c.Game)
+                    .Include(c => c.Sport)
+                    .FirstOrDefault(c => c.CountryID == id) ?? new Country(),
+                ActiveGame = session.GetActiveGame(),
+                ActiveSport = session.GetActiveSport()
+            };
+            return View(model);
         }
     }
-}
+}   
     
