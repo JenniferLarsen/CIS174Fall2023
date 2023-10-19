@@ -24,7 +24,7 @@
         @if (controller != "Favorites")
         {
             var session = new OlympicsSession(Context.Session);
-            int? count = session.GetMyTeamCount();
+            int? count = session.GetMyCountryCount();
             @* if there are fave countries in sesion, display faves link*@
             @if (count.HasValue)
             {
