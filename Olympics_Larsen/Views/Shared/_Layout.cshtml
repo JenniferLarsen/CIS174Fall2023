@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@{
+    string controller = ViewContext.RouteData.Values["controller"]?.ToString() ?? "";
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -9,7 +13,28 @@
     <link rel="stylesheet" href="~/Olympics_Larsen.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <header>
+    <header class="text-center text-white">
+        <h1 class="bg-primary mt-3 p-3">Olympic Countries</h1>
+        @* show any message in TempData *@
+        @if (TempData.Keys.Contains("message"))
+        {
+            <h4 class="bg-success p-2">@TempData["message"]</h4>
+        }
+        @* show link to Favorites page unless on Favorites page*@
+        @if (controller != "Favorites")
+        {
+            var session = new OlympicsSession(Context.Session);
+            int? count = session.GetMyTeamCount();
+            @* if there are fave countries in sesion, display faves link*@
+            @if (count.HasValue)
+            {
+                <h5 class="bg-info p-2">
+                    <a asp-controller="Favorites" asp-action="Index" class="text-white">My Favorite Countries</a>
+                    <span class="badge bg-light text-black">@count</span>
+                </h5>
+            }
+        }
+
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-controller="Home" asp-action="Index">Olympics_Larsen</a>
@@ -29,15 +54,11 @@
     </header>
     <div class="container">
         <main role="main" class="pb-3">
+
             <!--page 349-->
             @RenderBody()
         </main>
     </div>
-    @if (TempData.Keys.Contains("message"))
-    {
-        <h4 class="bg-success p-2">@TempData["message"]</h4>
-    }
-
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2023 - Olympics_Larsen <a asp-controller="Home" asp-action="Index"></a>

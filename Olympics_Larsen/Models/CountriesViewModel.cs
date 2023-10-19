@@ -9,6 +9,7 @@ namespace Olympics_Larsen.Models
         public string ActiveSport { get; set; } = "all";
         public string ActiveLocation { get; set; } = "all";
         public string ActiveCountry { get; set; } = "all";
+        public Country Country { get; set; } = new Country();
 
         public List<Country> Countries { get; set; } = new List<Country>();
         public List<Game> Games { get; set; } = new List<Game>();
