@@ -1,6 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Olympics_Larsen.Controllers;
-using System;
 
 
 namespace Olympics_Larsen.Models
@@ -46,7 +44,7 @@ namespace Olympics_Larsen.Models
             modelBuilder.Entity<Country>().HasData(
                 new Country { CountryID = "CAN", CountryName = "Canada", GameID = "Winter", SportID = "Curl", LocationID = "In", FlagImage = "canada.jpg" },
                 new Country { CountryID = "SWE", CountryName = "Sweden", GameID = "Winter", SportID = "Curl", LocationID = "In", FlagImage = "sweden.jpg" },
-                new Country { CountryID = "GBR", CountryName = "Great Brittain", GameID = "Winter", SportID = "Curl", LocationID = "In", FlagImage = "great_brittain.jpg" },
+                new Country { CountryID = "GBR", CountryName = "Great Britain", GameID = "Winter", SportID = "Curl", LocationID = "In", FlagImage = "great_britain.jpg" },
                 new Country { CountryID = "JAM", CountryName = "Jamaica", GameID = "Winter", SportID = "Bob", LocationID = "Out", FlagImage = "jamaica.jpg" },
                 new Country { CountryID = "ITA", CountryName = "Italy", GameID = "Winter", SportID = "Bob", LocationID = "Out", FlagImage = "italy.jpg" },
                 new Country { CountryID = "JPN", CountryName = "Japan", GameID = "Winter", SportID = "Bob", LocationID = "Out", FlagImage = "japan.jpg" },

@@ -11,8 +11,8 @@ using Olympics_Larsen.Models;
 namespace Olympics_Larsen.Migrations
 {
     [DbContext(typeof(CountryContext))]
-    [Migration("20231018154452_Initial")]
-    partial class Initial
+    [Migration("20231019001737_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -81,8 +81,8 @@ namespace Olympics_Larsen.Migrations
                         new
                         {
                             CountryID = "GBR",
-                            CountryName = "Great Brittain",
-                            FlagImage = "great_brittain.jpg",
+                            CountryName = "Great Britain",
+                            FlagImage = "great_britain.jpg",
                             GameID = "Winter",
                             LocationID = "In",
                             SportID = "Curl"

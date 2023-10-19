@@ -7,7 +7,7 @@
 namespace Olympics_Larsen.Migrations
 {
     /// <inheritdoc />
-    public partial class Initial : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -131,7 +131,7 @@ namespace Olympics_Larsen.Migrations
                     { "DEU", "Germany", "germany.jpg", "Summer", "In", "Dive" },
                     { "FIN", "Finland", "finland.jpg", "Youth", "Out", "Skt" },
                     { "FRA", "France", "france.jpg", "Youth", "In", "Bkd" },
-                    { "GBR", "Great Brittain", "great_brittain.jpg", "Winter", "In", "Curl" },
+                    { "GBR", "Great Britain", "great_britain.jpg", "Winter", "In", "Curl" },
                     { "ITA", "Italy", "italy.jpg", "Winter", "Out", "Bob" },
                     { "JAM", "Jamaica", "jamaica.jpg", "Winter", "Out", "Bob" },
                     { "JPN", "Japan", "japan.jpg", "Winter", "Out", "Bob" },

@@ -78,8 +78,8 @@ namespace Olympics_Larsen.Migrations
                         new
                         {
                             CountryID = "GBR",
-                            CountryName = "Great Brittain",
-                            FlagImage = "great_brittain.jpg",
+                            CountryName = "Great Britain",
+                            FlagImage = "great_britain.jpg",
                             GameID = "Winter",
                             LocationID = "In",
                             SportID = "Curl"
