@@ -109,6 +109,11 @@ namespace ToDoList.Controllers
             context.SaveChanges();
             return RedirectToAction("Index");
         }
+        
+        public IActionResult Privacy()
+        {
+            return View();
+        }
 
     }
 }
