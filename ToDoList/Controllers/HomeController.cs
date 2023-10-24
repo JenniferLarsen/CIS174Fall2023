@@ -51,9 +51,10 @@ namespace ToDoList.Controllers
         }
 
         [HttpPost]
-        public IActionResult Filter (string filter)
+        public IActionResult Filter(string filter)
         {
-            return RedirectToAction("Index");
+            // Redirect to the Index action with the selected filter
+            return RedirectToAction("Index", new { id = filter });
         }
         [HttpPost]
         public IActionResult MarkDone([FromRoute]string id, Ticket selected) 
@@ -68,43 +69,45 @@ namespace ToDoList.Controllers
             return RedirectToAction("Index", new {ID = id});
         }
 
+
+        [HttpPost]
+        public IActionResult MarkInProgress([FromRoute] string id, int TicketID)
+        {
+            var selected = context.Tickets.Find(TicketID);
+            if (selected != null)
+            {
+                selected.StatusID = "inprogress";
+                context.SaveChanges();
+            }
+
+            return RedirectToAction("Index", new { id });
+        }
+
+        [HttpPost]
+        public IActionResult MarkQA([FromRoute] string id, int TicketID)
+        {
+            var selected = context.Tickets.Find(TicketID);
+            if (selected != null)
+            {
+                selected.StatusID = "qa";
+                context.SaveChanges();
+            }
+
+            return RedirectToAction("Index", new { id });
+        }
+
         [HttpPost]
         public IActionResult DeleteComplete(string id)
         {
             var toDelete = context.Tickets
                 .Where(t => t.StatusID == "done").ToList();
 
-            foreach(var task in toDelete)
+            foreach (var task in toDelete)
             {
                 context.Tickets.Remove(task);
             }
             context.SaveChanges();
             return RedirectToAction("Index");
-        }
-
-        [HttpPost]
-        public IActionResult MarkInProgress([FromRoute] string id, Ticket selected)
-        {
-            selected = context.Tickets.Find(selected.TicketID)!;
-            if (selected != null)
-            {
-                selected.StatusID = "inprogress";
-                context.SaveChanges();
-            }
-
-            return RedirectToAction("Index", new { ID = id });
-        }
-        [HttpPost]
-        public IActionResult MarkQA([FromRoute] string id, Ticket selected)
-        {
-            selected = context.Tickets.Find(selected.TicketID)!;
-            if (selected != null)
-            {
-                selected.StatusID = "inprogress";
-                context.SaveChanges();
-            }
-
-            return RedirectToAction("Index", new { ID = id });
         }
 
     }

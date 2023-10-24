@@ -5,7 +5,7 @@
         public Filters(string filterstring)
         {
             Filterstring = filterstring ?? "all";
-            StatusID = filterstring;
+            StatusID = Filterstring;
         }
         public string  Filterstring { get;}
         public string StatusID { get; }

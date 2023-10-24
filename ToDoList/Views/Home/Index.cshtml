@@ -5,7 +5,7 @@
         <form asp-action="Filter" method="post">
             <div class="mb-3">
                 <label class="form-label">Status:</label>
-                <select name="filter" class="form-select" asp-items="@(new SelectList (ViewBag.Statuses, "StatusID", "Name", ViewBag.Filters.StatusID))">
+                <select name="filter" class="form-select" asp-items="@(new SelectList (ViewBag.Statuses, "StatusID", "StatusName", ViewBag.Filters.StatusID))">
                     <option value="all">All</option>
                 </select>
             </div>
@@ -16,7 +16,6 @@
         </form>
     </div>
     <div class="col-md-10">
-        <form asp-action="MarkDone" method="post" asp-route-id="@ViewBag.Filters.FilterString">
             <table class="table table-bordered table-striped mt-2">
                 <thead>
                     <tr>
@@ -25,67 +24,49 @@
                         <th>Sprint Number</th>
                         <th>Point Value</th>
                         <th>Status</th>
-                        <th class="w-25"></th>
+                        <th>Mark In Progress</th>
+                        <th>Mark QA</th>
+                        <th>Mark Done</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (Ticket task in Model)
                     {
                         <tr>
-                        <td>@task.Name</td>
-                        <td>@task.Description</td>
-                        <td>@task.SprintNumber</td>
-                        <td>@task.PointValue</td>
-                        <td>@task.Status</td>
-                        <td>
-                            @if (task.StatusID == "todo")
-                            {
-                                <button type="submit"
-                                    class="btn btn-primary btn-sm"
-                                    name="@nameof(Ticket.TicketID)"
-                                    value="@task.TicketID">
-                                    Mark Done
-                                </button>
-                            }
-                        </td>
+                            <td>@task.Name</td>
+                            <td>@task.Description</td>
+                            <td>@task.SprintNumber</td>
+                            <td>@task.PointValue</td>
+                            <td>@task.Status.StatusName</td>
                             <td>
-                                @if (task.StatusID == "todo")
-                                {
-                                    <button type="submit"
-                                            class="btn btn-primary btn-sm"
-                                            name="@nameof(Ticket.TicketID)"
-                                            value="@task.TicketID">
+                                <form asp-action="MarkInProgress" method="post" asp-route-id="@ViewBag.Filters.Filterstring">
+                                    <input type="hidden" name="TicketID" value="@task.TicketID" />
+                                    <button type="submit" class="btn btn-primary btn-sm">
                                         Mark In Progress
                                     </button>
-                                }
-                            <td>
-                                    @if (task.StatusID == "inprogress")
-                                    {
-                                    <button type="submit"
-                                            class="btn btn-primary btn-sm"
-                                            name="@nameof(Ticket.TicketID)"
-                                            value="@task.TicketID">
-                                        Mark Quality Assurance
-                                    </button>
-                                    }
+                                </form>
                             </td>
                             <td>
-                                    @if (task.StatusID == "qa")
-                                    {
-                                    <button type="submit"
-                                            class="btn btn-primary btn-sm"
-                                            name="@nameof(Ticket.TicketID)"
-                                            value="@task.TicketID">
+                                <form asp-action="MarkQA" method="post" asp-route-id="@ViewBag.Filters.Filterstring">
+                                    <input type="hidden" name="TicketID" value="@task.TicketID" />
+                                    <button type="submit" class="btn btn-primary btn-sm">
+                                        Mark Quality Assurance
+                                    </button>
+                                </form>
+                            </td>
+                            <td>
+                                <form asp-action="MarkDone" method="post" asp-route-id="@ViewBag.Filters.Filterstring">
+                                    <input type="hidden" name="TicketID" value="@task.TicketID" />
+                                    <button type="submit" class="btn btn-primary btn-sm">
                                         Mark Done
                                     </button>
-                                    }
+                                </form>
                             </td>
                         </tr>
                     }
                 </tbody>
             </table>
-        </form>
-        <form asp-action="DeleteComplete" method="post" asp-route-id="@ViewBag.Filters.FilterString">
+        <form asp-action="DeleteComplete" method="post" asp-route-id="@ViewBag.Filters.Filterstring">
             <a asp-action="Add" class="btn btn-primary"> Add new ticket</a>
             <button type="submit" class="btn btn-primary">Delete completed tickets</button>
         </form>
