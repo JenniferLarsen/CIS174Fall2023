@@ -22,7 +22,7 @@
         <input asp-for="PointValue" class="form-control" />
     </div>
     <div class="mb-3">
-        <label asp-for="PointValue" class="form-label">StatusID:</label>
+        <label asp-for="StatusID" class="form-label">StatusID:</label>
         <select asp-for="StatusID" class="form-select" asp-items="@(new SelectList(ViewBag.Statuses, "StatusID", "StatusName"))">
         </select>
     </div>
