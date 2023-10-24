@@ -1,0 +1,93 @@
+﻿@model IEnumerable<ToDoList.Models.Ticket>
+
+<div class="row">
+    <div class="col-md-2">
+        <form asp-action="Filter" method="post">
+            <div class="mb-3">
+                <label class="form-label">Status:</label>
+                <select name="filter" class="form-select" asp-items="@(new SelectList (ViewBag.Statuses, "StatusID", "Name", ViewBag.Filters.StatusID))">
+                    <option value="all">All</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Filter</button>
+            <a asp-action="Index" asp-route-id="" class="btn btn-primary">
+                Clear
+            </a>
+        </form>
+    </div>
+    <div class="col-md-10">
+        <form asp-action="MarkDone" method="post" asp-route-id="@ViewBag.Filters.FilterString">
+            <table class="table table-bordered table-striped mt-2">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Sprint Number</th>
+                        <th>Point Value</th>
+                        <th>Status</th>
+                        <th class="w-25"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Ticket task in Model)
+                    {
+                        <tr>
+                        <td>@task.Name</td>
+                        <td>@task.Description</td>
+                        <td>@task.SprintNumber</td>
+                        <td>@task.PointValue</td>
+                        <td>@task.Status</td>
+                        <td>
+                            @if (task.StatusID == "todo")
+                            {
+                                <button type="submit"
+                                    class="btn btn-primary btn-sm"
+                                    name="@nameof(Ticket.TicketID)"
+                                    value="@task.TicketID">
+                                    Mark Done
+                                </button>
+                            }
+                        </td>
+                            <td>
+                                @if (task.StatusID == "todo")
+                                {
+                                    <button type="submit"
+                                            class="btn btn-primary btn-sm"
+                                            name="@nameof(Ticket.TicketID)"
+                                            value="@task.TicketID">
+                                        Mark In Progress
+                                    </button>
+                                }
+                            <td>
+                                    @if (task.StatusID == "inprogress")
+                                    {
+                                    <button type="submit"
+                                            class="btn btn-primary btn-sm"
+                                            name="@nameof(Ticket.TicketID)"
+                                            value="@task.TicketID">
+                                        Mark Quality Assurance
+                                    </button>
+                                    }
+                            </td>
+                            <td>
+                                    @if (task.StatusID == "qa")
+                                    {
+                                    <button type="submit"
+                                            class="btn btn-primary btn-sm"
+                                            name="@nameof(Ticket.TicketID)"
+                                            value="@task.TicketID">
+                                        Mark Done
+                                    </button>
+                                    }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </form>
+        <form asp-action="DeleteComplete" method="post" asp-route-id="@ViewBag.Filters.FilterString">
+            <a asp-action="Add" class="btn btn-primary"> Add new ticket</a>
+            <button type="submit" class="btn btn-primary">Delete completed tickets</button>
+        </form>
+    </div>
+</div>
