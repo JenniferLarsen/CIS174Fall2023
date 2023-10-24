@@ -8,3 +8,5 @@
 **/ServiceDependencies/
 *.csproj.user
 **/bin/
+.vs/CIS174Fall2023/v17/.wsuo
+.vs/VSWorkspaceState.json
