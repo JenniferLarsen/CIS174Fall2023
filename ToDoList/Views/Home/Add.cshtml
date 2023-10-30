@@ -7,19 +7,19 @@
 <form asp-action="Add" method="post">
     <div class="mb-3">
         <label asp-for="Name" class="form-label">Name:</label>
-        <input asp-for="Name" class="form-control" />
+        <input asp-for="Name" placeholder="Enter a name 30 characters or less." class="form-control" />
     </div>
     <div class="mb-3">
         <label asp-for="Description" class="form-label">Description:</label>
-        <input asp-for="Description" class="form-control" />
+        <input asp-for="Description" placeholder="Enter a Description 30 characters or less." class="form-control" />
     </div>
     <div class="mb-3">
         <label asp-for="SprintNumber" class="form-label">Sprint Number:</label>
-        <input asp-for="SprintNumber" class="form-control" />
+        <input asp-for="SprintNumber" placeholder="Enter a Sprint Number 1 - 100." class="form-control" />
     </div>
     <div class="mb-3">
         <label asp-for="PointValue" class="form-label">Point Value:</label>
-        <input asp-for="PointValue" class="form-control" />
+        <input asp-for="PointValue" placeholder="Enter a Point Value 1 - 5." class="form-control" />
     </div>
     <div class="mb-3">
         <label asp-for="StatusID" class="form-label">StatusID:</label>
@@ -29,3 +29,5 @@
     <button type="submit" class="btn btn-primary">Add Ticket</button>
 
 </form>
+
+
