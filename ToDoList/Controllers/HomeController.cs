@@ -7,8 +7,8 @@ namespace ToDoList.Controllers
 {
     public class HomeController : Controller
     {
-       private TicketContext context;
-            public HomeController(TicketContext ctx) => context = ctx;
+        private TicketContext context;
+        public HomeController(TicketContext ctx) => context = ctx;
 
         public IActionResult Index(string id)
         {
@@ -35,8 +35,8 @@ namespace ToDoList.Controllers
 
         }
         [HttpPost]
-        public IActionResult Add(Ticket task) 
-        { 
+        public IActionResult Add(Ticket task)
+        {
             if (ModelState.IsValid)
             {
                 context.Tickets.Add(task);
@@ -57,7 +57,7 @@ namespace ToDoList.Controllers
             return RedirectToAction("Index", new { id = filter });
         }
         [HttpPost]
-        public IActionResult MarkDone([FromRoute]string id, Ticket selected) 
+        public IActionResult MarkDone([FromRoute] string id, Ticket selected)
         {
             selected = context.Tickets.Find(selected.TicketID)!;
             if (selected != null)
@@ -66,7 +66,7 @@ namespace ToDoList.Controllers
                 context.SaveChanges();
 
             }
-            return RedirectToAction("Index", new {ID = id});
+            return RedirectToAction("Index", new { ID = id });
         }
 
 
@@ -109,7 +109,7 @@ namespace ToDoList.Controllers
             context.SaveChanges();
             return RedirectToAction("Index");
         }
-        
+
         public IActionResult Privacy()
         {
             return View();

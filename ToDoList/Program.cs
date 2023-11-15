@@ -1,13 +1,22 @@
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using ToDoList.Models;
+using ToDoList.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-//Add EF Core Dependency Injection
+// Add EF Core Dependency Injection
 builder.Services.AddDbContext<TicketContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("TicketContext")));
+
+// Add repository pattern dependency injection
+builder.Services.AddTransient<ITicketRepository<Ticket>, TicketRepository>();
 
 var app = builder.Build();
 
