@@ -2,13 +2,23 @@
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 using ToDoList.Models;
+using ToDoList.Repository;
 
 namespace ToDoList.Controllers
 {
     public class HomeController : Controller
     {
         private TicketContext context;
-        public HomeController(TicketContext ctx) => context = ctx;
+        private ILogger<HomeController> object1;
+        private ITicketRepository<Ticket> object2;
+
+        public HomeController(ILogger<HomeController> @object, TicketContext ctx) => context = ctx;
+
+        public HomeController(ILogger<HomeController> object1, ITicketRepository<Ticket> object2)
+        {
+            this.object1 = object1;
+            this.object2 = object2;
+        }
 
         public IActionResult Index(string id)
         {
@@ -114,6 +124,5 @@ namespace ToDoList.Controllers
         {
             return View();
         }
-
     }
 }
