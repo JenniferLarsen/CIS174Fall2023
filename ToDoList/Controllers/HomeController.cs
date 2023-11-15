@@ -12,8 +12,8 @@ namespace ToDoList.Controllers
         private ILogger<HomeController> object1;
         private ITicketRepository<Ticket> object2;
 
-        public HomeController(ILogger<HomeController> @object, TicketContext ctx) => context = ctx;
-
+        /*public HomeController(ILogger<HomeController> @object, TicketContext ctx) => context = ctx;
+*/
         public HomeController(ILogger<HomeController> object1, ITicketRepository<Ticket> object2)
         {
             this.object1 = object1;
