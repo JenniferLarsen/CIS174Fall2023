@@ -13,6 +13,8 @@ namespace TicketTest
     [TestClass]
     public class HomeControllerTest
     {
+        private string id;
+
         [TestMethod]
         public void Index_HappyPath()
         {
@@ -29,7 +31,7 @@ namespace TicketTest
             HomeController controller = new HomeController(logger.Object, repositoryMock.Object);
 
             // Action
-            var result = controller.Index();
+            var result = controller.Index(id);
 
             // Assert
             Assert.IsInstanceOfType(result, typeof(ViewResult));
@@ -38,5 +40,6 @@ namespace TicketTest
             var model = viewResult.Model as List<Ticket>;
             Assert.AreEqual(2, model.Count);
         }
+
     }
 }

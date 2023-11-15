@@ -12,8 +12,8 @@ namespace ToDoList.Controllers
         private ILogger<HomeController> object1;
         private ITicketRepository<Ticket> object2;
 
-        /*public HomeController(ILogger<HomeController> @object, TicketContext ctx) => context = ctx;
-*/
+        public HomeController(ILogger<HomeController> @object, TicketContext ctx) => context = ctx;
+
         public HomeController(ILogger<HomeController> object1, ITicketRepository<Ticket> object2)
         {
             this.object1 = object1;
@@ -24,7 +24,7 @@ namespace ToDoList.Controllers
         {
             var filters = new Filters(id);
             ViewBag.Filters = filters;
-            ViewBag.Statuses = context.Statuses.ToList();
+            //ViewBag.Statuses = context.Statuses.ToList(); // Remove this line
 
             IQueryable<Ticket> query = context.Tickets
                 .Include(t => t.Status);
@@ -35,6 +35,7 @@ namespace ToDoList.Controllers
             var tasks = query.OrderBy(t => t.StatusID).ToList();
             return View(tasks);
         }
+
 
         [HttpGet]
         public IActionResult Add()
