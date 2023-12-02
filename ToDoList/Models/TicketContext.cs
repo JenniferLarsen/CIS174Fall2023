@@ -1,9 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using System;
 
 namespace ToDoList.Models
 {
-    public class TicketContext : DbContext
+    public class TicketContext : IdentityDbContext<User>
     {
         public TicketContext (DbContextOptions<TicketContext> options) : base(options) { }
         public DbSet<Ticket> Tickets { get; set; } = null!;
@@ -11,6 +12,7 @@ namespace ToDoList.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Status>().HasData(
                 new Status { StatusID = "todo", StatusName = "To Do" },
                 new Status { StatusID = "inprogress", StatusName = "In Progress" },

@@ -1,10 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 using System.Diagnostics;
 using ToDoList.Models;
 
 namespace ToDoList.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
        private TicketContext context;
